@@ -19,7 +19,12 @@ API_KEY_PAPER, SECRET_PAPER = read_keys('keys_paper.txt')
 api = tradeapi.REST(API_KEY_PAPER, SECRET_PAPER, base_url='https://paper-api.alpaca.markets')
 
 def listPos(api):
-    pass
+    positions = api.list_positions()
+    for position in positions:
+        print(position)
+
+    return positions
 
 account = api.get_account()
-print(api.list_positions())
+print(api.list_orders())
+print(listPos(api))
